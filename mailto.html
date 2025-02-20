@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Huntington Beach City Council</title>
+    <style>
+        /* 🔥 General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* 🔥 Centered Container */
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 🔥 Properly Centered Form */
+        form {
+            text-align: left;
+        }
+
+        /* 🔥 Properly Positioned Legend */
+        fieldset {
+            border: 1px solid #ccc;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 5px 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* 🔥 Input & Textarea */
+        input[type="text"], textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus, textarea:focus {
+            border-color: #0077ff;
+            outline: none;
+        }
+
+        /* 🔥 Checkbox Styling */
+        label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        /* 🔥 Send Button */
+        button {
+            background: #0077ff;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #005bbf;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Contact Huntington Beach City Council</h2>
+
+        <form id="emailForm">
+            <fieldset>
+                <legend>Select Recipients:</legend>
+
+                <label>
+                    <input type="checkbox" class="email-checkbox" value="City.Council@surfcity-hb.org" checked>
+                    Full City Council Email
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" class="email-checkbox" value="SupplementalComm@surfcity-hb.org">
+                    Supplemental Communications
+                </label>
+                <br>
+                <!-- Individual Council Members -->
+                <label>
+                    <input type="checkbox" class="email-checkbox" value="Pat.Burns@surfcity-hb.org">
+                    Council Member Pat Burns
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" class="email-checkbox" value="Don.Kennedy@surfcity-hb.org">
+                    Council Member Don Kennedy
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" class="email-checkbox" value="Casey.McKeon@surfcity-hb.org">
+                    Council Member Casey McKeon
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" class="email-checkbox" value="Tony.Strickland@surfcity-hb.org">
+                    Council Member Tony Strickland
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" class="email-checkbox" value="Butch.Twining@surfcity-hb.org">
+                    Council Member Butch Twining
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" class="email-checkbox" value="Gracey.VanDerMark@surfcity-hb.org">
+                    Council Member Gracey Van Der Mark
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" class="email-checkbox" value="Chad.Williams@surfcity-hb.org">
+                    Council Member Chad Williams
+                </label>
+                <br><br>
+
+                <!-- Check All Toggle -->
+                <label>
+                    <input type="checkbox" id="checkAll" onclick="toggleAll(this)">
+                    <strong>Select All</strong>
+                </label>
+
+            </fieldset>
+
+            <br>
+            <label for="emailSubject">Subject:</label>
+            <input type="text" id="emailSubject" placeholder="Enter subject" value="Public Comment">
+            <br><br>
+
+            <label for="emailBody">Message:</label><br>
+            <textarea id="emailBody" placeholder="Enter your message here..." rows="5" cols="50"></textarea>
+            <br><br>
+
+            <button type="button" onclick="generateMailto()">Send Email</button>
+        </form>
+    </div>
+
+    <script>
+        function generateMailto() {
+            const checkboxes = document.querySelectorAll('.email-checkbox:checked');
+            const emails = Array.from(checkboxes).map(cb => cb.value).join(',');
+
+            const subject = encodeURIComponent(document.getElementById('emailSubject').value);
+            const body = encodeURIComponent(document.getElementById('emailBody').value);
+
+            if (emails.length === 0) {
+                alert("Please select at least one recipient.");
+                return;
+            }
+
+            const mailtoLink = `mailto:${emails}?subject=${subject}&body=${body}`;
+            window.location.href = mailtoLink; // Opens the default mail app
+        }
+
+        function toggleAll(source) {
+            const checkboxes = document.querySelectorAll('.email-checkbox');
+            checkboxes.forEach(cb => cb.checked = source.checked);
+        }
+    </script>
+
+</body>
+</html>

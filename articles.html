@@ -1,0 +1,71 @@
+<style>
+        .article-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            padding: 20px;
+        }
+        .article-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background: #fff;
+        }
+        .article-card:hover {
+            transform: scale(1.03);
+        }
+        .article-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .article-content {
+            padding: 15px;
+        }
+        .article-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .article-snippet {
+            font-size: 14px;
+            color: #555;
+        }
+        .article-author {
+            font-size: 12px;
+            color: #888;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .article-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="article-container">
+        <div class="article-card">
+            <a href="https://www.latimes.com/opinion/story/2024-07-30/editorial-huntington-beachs-deals-with-pacific-airshow-stiff-the-public-one-way-or-another" target="_blank">
+                <img src="https://www.example.com/image1.jpg" alt="Article 1">
+            </a>
+            <div class="article-content">
+                <div class="article-title">Huntington Beach’s Deals with Pacific Airshow</div>
+                <div class="article-snippet">Editorial: Huntington Beach’s contracts with the Pacific Airshow may be shortchanging the public...</div>
+                <div class="article-author">By LA Times Editorial Board | <strong>Los Angeles Times</strong></div>
+            </div>
+        </div>
+
+        <div class="article-card">
+            <a href="https://www.latimes.com/socal/daily-pilot/news/story/2024-05-08/huntington-beach-wont-send-possible-library-outsourcing-to-voters-to-decide" target="_blank">
+                <img src="https://www.example.com/image2.jpg" alt="Article 2">
+            </a>
+            <div class="article-content">
+                <div class="article-title">Huntington Beach Library Outsourcing</div>
+                <div class="article-snippet">City leaders declined to let voters decide on a controversial proposal to outsource the public library.</div>
+                <div class="article-author">By Matt Szabo | <strong>Los Angeles Times</strong></div>
+            </div>
+        </div>
+    </div>
